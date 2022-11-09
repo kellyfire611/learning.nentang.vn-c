@@ -8,15 +8,16 @@ Output: Nghiệm của phương trình
 Biết rằng:
 Nếu a == 0, phương trình thành bx + c = 0 
 Ngược lại nếu a != 0
- Tính delta
- Nếu delta < 0: Phương trình vô nghiệm
- Nếu delta == 0: Phương trình có nghiệm kép x = -b/(2*a)
- Nếu delta > 0: Phương trình có 2 nghiệm riêng biệt 
-o X1 = (-b + căn(delta))/(2*a)
-o X2 = (-b – căn(delta))/(2*a)
+- Tính delta
+- Nếu delta < 0: Phương trình vô nghiệm
+- Nếu delta == 0: Phương trình có nghiệm kép x = -b/(2*a)
+- Nếu delta > 0: Phương trình có 2 nghiệm riêng biệt 
+	- X1 = (-b + căn(delta))/(2*a)
+	- X2 = (-b – căn(delta))/(2*a)
 */
 #include<stdio.h>
 #include<conio.h>
+#include<math.h>
 
 int main() {
 	// 1. Khai báo biến
@@ -50,14 +51,29 @@ int main() {
 			}
 		}
 		else {
-			float ketqua;
-			ketqua = -c / b;
-			printf("Phuong trinh co nghiem x = %f", ketqua);
+			float x;
+			x = -c / b;
+			printf("Phuong trinh co nghiem x = %f", x);
 		}
 	}
 	else {
 		float delta;
-		
+		delta = b*b - 4*a*c;
+		if(delta < 0) {
+			printf("Phuong trinh vo nghiem");
+		}
+		else if(delta == 0) {
+			float x;
+			x = -b / 2*a;
+			printf("Phuong trinh co nghiem kep x = %f", x);
+		}
+		else if(delta > 0) {
+			float x1, x2;
+			x1 = (-b + sqrt(delta)) / 2*a;
+			x2 = (-b - sqrt(delta)) / 2*a;
+			printf("\nPhuong trinh co nghiem kep x1 = %f \n", x1);
+			printf("Phuong trinh co nghiem kep x2 = %f \n", x2);
+		}
 	}
 	
 	getch(); // Lenh dung man hinh
