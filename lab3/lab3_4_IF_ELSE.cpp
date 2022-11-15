@@ -22,22 +22,20 @@ int main() {
 	printf("Moi ban chon: ");
 	scanf("%c", &lua_chon);
 	
-	switch(lua_chon) {
-		case '1':
-			printf("Ban da lua chon chuong trinh: Tinh xep hang hoc luc.");
-			break;
-		case '2':
-			printf("Ban da lua chon chuong trinh: Giai phuong trinh bac nhat.");
-			break;
-		case '3':
-			printf("Ban da lua chon chuong trinh: Giai phuong trinh bac hai.");
-			break;
-		case '4':
-			printf("Ban da lua chon chuong trinh: Tinh tien dien.");
-			break;
-		default:
-			printf("Vui long chi lua chon tu 1-4.");
-			break;
+	if(lua_chon == '1') {
+		printf("Ban da lua chon chuong trinh: Tinh xep hang hoc luc.");
+	}
+	else if(lua_chon == '2') {
+		printf("Ban da lua chon chuong trinh: Giai phuong trinh bac nhat.");
+	}
+	else if(lua_chon == '3') {
+		printf("Ban da lua chon chuong trinh: Giai phuong trinh bac hai.");
+	}
+	else if(lua_chon == '4') {
+		printf("Ban da lua chon chuong trinh: Tinh tien dien.");
+	}
+	else {
+		printf("Vui long chi lua chon tu 1-4.");
 	}
 	
 	getch(); // Lenh dung man hinh

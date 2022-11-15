@@ -19,10 +19,10 @@ int main() {
 	float a, b;
 	
 	// 2. INPUT nhập liệu
-	printf("Moi so a: ");
+	printf("Moi nhap so a: ");
 	scanf("%f", &a);
 	
-	printf("Moi so b: ");
+	printf("Moi nhap so b: ");
 	scanf("%f", &b);
 	
 	// 3. PROCESS xử lý tính toán theo Nghiệp vụ Logic
