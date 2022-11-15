@@ -1,5 +1,5 @@
 /*
-BÀI 4: XÂY DỰNG MENU CHƢƠNG TRÌNH CHO 3 BÀI TẬP TRÊN
+BÀI 4: XÂY DỰNG MENU CHƯƠNG TRÌNH CHO 3 BÀI TẬP TRÊN
 
 Yêu cầu: 
  Nếu người dùng nhập từ bàn phím số 1:  Chạy chương trình bài 1
