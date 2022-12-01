@@ -10,48 +10,42 @@ chia hết cho 100
 #include<stdio.h>
 #include<conio.h>
 
-// Ham tim so lon nhat
-int timSoLonNhat(int so1, int so2, int so3) {
-	int max;
-	
-	// Giai thuat tim so lon nhat trong 3 so
-	if((so1 > so2) && (so1 > so3)) {
-		max = so1;
-	}
-	else if((so2 > so3) && (so2 > so1)) {
-		max = so2;
+// Ham xac dinh co phai nam nhuan hay khong?
+bool laNamNhuan(int nam) {
+	// Giai thuat xac dinh nam Nhuan
+	if(
+		(nam % 400 == 0) // - La nam chia het cho 400
+		|| ((nam % 4 == 0) && (nam % 100 != 0)) // - Hoac nam chia het cho 4 nhung khong chia het cho 100
+	) {
+		return true;
 	}
 	else {
-		max = so3;
+		return false;
 	}
-	
-	// Tra ve ket qua
-	return max;
 }
 
 int main() {
 	// 1. Khai báo biến
-	int num1, num2, num3;
+	int nam;
 	
 	// 2. INPUT nhập liệu
-	printf("Moi nhap so 1: ");
-	scanf("%d", &num1);
-	
-	printf("Moi nhap so 2: ");
-	scanf("%d", &num2);
-	
-	printf("Moi nhap so 3: ");
-	scanf("%d", &num3);
-	
+	printf("Moi nhap nam: ");
+	scanf("%d", &nam);
+
 	// 3. PROCESS xử lý tính toán theo Nghiệp vụ Logic
-	int kq;
-	kq = timSoLonNhat(num1, num2, num3);
+	bool kq;
+	kq = laNamNhuan(nam);
 	
 	// 4. OUTPUT xuất ra màn hình
-	printf("=== CHUONG TRINH TIM SO LON NHAT TRONG 3 SO ===\n");
+	printf("=== CHUONG TRINH XAC DINH NAM NHUAN ===\n");
 	printf("Thong tin:\n");
-	printf("- Cac con so vua nhap: %d %d %d \n", num1, num2, num3);
-	printf("- Ket qua so lon nhat la: %d", kq);
+	printf("- Nam vua nhap: %d \n", nam);
+	if(kq == true) {
+		printf("- Ket qua: la nam nhuan.");	
+	} 
+	else {
+		printf("- Ket qua: khong phai la nam nhuan.");	
+	}
 	
 	getch(); // Lenh dung man hinh
 	return 0;
