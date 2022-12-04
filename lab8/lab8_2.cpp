@@ -1,8 +1,8 @@
 /*
-BÀI 1: XÂY DỰNG CHƯƠNG TRÌNH LƯU THÔNG TIN SINH VIÊN
+BÀI 2: XÂY DỰNG CHƯƠNG TRÌNH LƯU THÔNG TIN SINH VIÊN VÀ SẮP XẾP SINH VIÊN THEO ĐIỂM TĂNG DẦN
 
 Input: Nhập vào từ bàn phím các thông tin sinh viên như: mã số sinh viên, tên sinh viên, ngành học, điểm trung bình
-Output: Xuất ra thông tin của tất cả sinh viên trên màn hình
+Output: Xuất ra thông tin của tất cả sinh viên trên màn hình, sắp xếp theo điểm tăng dần
 
 */
 #include<stdio.h>
@@ -18,6 +18,15 @@ struct SinhVien {
 };
 
 typedef SinhVien SV;
+
+// Hàm hoán vị
+void hoanVi(SV *sinhvien1, SV *sinhvien2) {
+	SV temp;
+	
+	temp = *sinhvien1;
+	*sinhvien1 = *sinhvien2;
+	*sinhvien2 = temp;
+}
 
 int main() {
 	// 1. INPUT
@@ -46,7 +55,16 @@ int main() {
 		scanf("%f", &danhsachSV[i].diemTB);
 	}
 	
-	// 4. OUTPUT xuất ra màn hình
+	// 4. Giái thuật sắp xếp theo điểm tăng dần
+	for(int i=0; i<N; i++) {
+		for(int j=i+1; j<N; j++) {
+			if(danhsachSV[i].diemTB > danhsachSV[j].diemTB) {
+				hoanVi(&danhsachSV[i], &danhsachSV[j]);
+			}
+		}
+	}
+	
+	// 5. OUTPUT xuất ra màn hình
 	printf("====== DANH SACH SINH VIEN ======\n");
 	for(int i=0; i<N; i++) {
 		printf("=== Thong tin sinh vien thu %d:\n", i);
