@@ -96,20 +96,25 @@ int main() {
 		}
 	}
 	
-	// In ra thông tin sinh viên tìm được
-	printf("=== Thong tin sinh vien can tim: \n");
-	fflush(stdin);
-	
-	printf("- MSSV: ");
-	puts(danhsachSV[vitriIndex].mssv);
-	
-	printf("- Ho ten: ");
-	puts(danhsachSV[vitriIndex].tenSV);
-	
-	printf("- Nganh hoc: ");
-	puts(danhsachSV[vitriIndex].nganhHoc);
-	
-	printf("- Diem trung binh: %f\n ", danhsachSV[vitriIndex].diemTB);
+	if(vitriIndex == -1) {
+		// Không tim thấy kết quả
+		printf("Khong tim thay ket qua");
+	} else {
+		// In ra thông tin sinh viên tìm được
+		printf("=== Thong tin sinh vien can tim: \n");
+		fflush(stdin);
+		
+		printf("- MSSV: ");
+		puts(danhsachSV[vitriIndex].mssv);
+		
+		printf("- Ho ten: ");
+		puts(danhsachSV[vitriIndex].tenSV);
+		
+		printf("- Nganh hoc: ");
+		puts(danhsachSV[vitriIndex].nganhHoc);
+		
+		printf("- Diem trung binh: %.2f\n ", danhsachSV[vitriIndex].diemTB);
+	}
 	
 	getch(); // Lenh dung man hinh
 	return 0;

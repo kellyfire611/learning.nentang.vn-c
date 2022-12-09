@@ -1,9 +1,71 @@
 /*
-PARSE 1: tạo MENU chương trình
+PARSE 2: thực hiện các chức năng trong chương trình
 */
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+
+/*
+1. Chức năng số 1: Kiểm tra số nguyên
+Input: Nhập vào 1 số nguyên x từ bàn phím.
+Output: Hiển thị ra màn hình
+- Số x có phải là số nguyên?
+- Số x có phải là số nguyên tố?
+- Số x có phải là số chính phương?
+*/
+void chucNangSo1() {
+	// 1. Khai báo biến
+	float x;
+	  
+	// 2. INPUT nhập liệu
+	printf("Moi nhap x: ");
+	scanf("%f", &x);
+	
+	// 3. Kiem tra so nguyen
+	if(x == (int)x) {
+		printf("- %.0f la so NGUYEN\n", x);
+	} 
+	else {
+		printf("- %.0f KHONG phai la so NGUYEN\n", x);
+	}
+	
+	// 4. Kiem tra so nguyen to
+	if(x < 2) {
+		printf("- %.0f KHONG phai la so NGUYEN TO\n", x);
+	}
+	else {
+		// Chay vong lap tu 2 -> x
+		int count = 0;
+		for(int i = 2; i < x; i++) {
+		  if((int)x % i == 0) {
+		    count++;
+		  }
+		}
+		
+		// Ket qua
+		if(count == 0) {
+		  printf("- %.0f LA so NGUYEN TO\n", x);
+		} else {
+		  printf("- %.0f KHONG phai la so NGUYEN TO\n", x);
+		}
+	}
+	
+	// 5. Kiem tra so chinh phuong
+	// Chay vong lap tu 1 -> x
+	bool laSoChinhPhuong = false;
+	for(int i = 1; i < x; i++) {
+		if((i*i) == x) {
+			laSoChinhPhuong = true;
+		}
+	}
+	
+	// Ket qua
+	if(laSoChinhPhuong == true) {
+		printf("- %.0f LA so CHINH PHUONG\n", x);
+	} else {
+		printf("- %.0f KHONG phai la so CHINH PHUONG\n", x);
+	}
+}
 
 int main() {
 	// 1. Khai báo biến
@@ -40,6 +102,7 @@ int main() {
 	switch(lua_chon) {
 		case 1:
 			// Kiem tra so nguyen
+			chucNangSo1();
 			break;
 		case 2:
 			// Tim Uoc so chung va Boi so chung cua 2 so
