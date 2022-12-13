@@ -1,9 +1,80 @@
 /*
-PARSE 1: tạo MENU chương trình
+PARSE 2: thực hiện các chức năng trong chương trình
 */
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
+
+/*
+Chức năng số 2. Tìm Ước số chung và bội số chung của 2 số
+Input: Nhập và 2 số nguyên (x,y) từ bàn phím
+Output: Hiển thi ra màn hình
+- Ước số chung lớn nhất của 2 số
+- Bội số chung nhỏ nhất của 2 số
+*/
+// Hàm tìm UCLN (Ước chung lớn nhất)
+// Ước chung lớn nhất là con số nguyên dương mà A và B đều chia hết cho nó
+int UCLN(int A, int B) {
+    //Nếu A hoặc B = 0 thì UCLN = A + B
+    if (A == 0 || B == 0)
+        return A + B;
+ 
+   	//Lặp cho tới khi A = B
+    while(A != B) {
+        //Lấy số lớn trừ số bé.
+        if (A > B) {
+            A -= B;
+        } else {
+            B -= A;
+        }
+    }
+     
+   	// Trả về UCLB
+   	// Lúc này A = B nên return về A hay B đều giống nhau
+    return A;
+}
+// Hàm tim BCNN (Bội chung nhỏ nhất)
+// Bội chung nhỏ nhất là con số nguyên dương có thể chia hết cả A và B
+int BCNN(int A, int B) {
+	int kq;
+	int step;
+	
+	//tìm step là số lớn nhất giữa a và b
+    if(A > B )
+    {
+        step = A;
+    } 
+	else { // a<=b
+        step = B;
+    }
+    
+    for(int i = step; i <= A*B; i += step){
+        if(i % A == 0 && i % B == 0) // neu i chia het cho ca a va b
+        {
+            kq = i;
+            break;
+        }
+    }
+    
+    // Trả về BCNN
+    return kq;
+}
+void chucNangSo2() {
+	// 1. Khai báo biến
+	int x, y;
+	  
+	// 2. INPUT nhập liệu
+	printf("Moi nhap x: ");
+	scanf("%d", &x);
+	printf("Moi nhap y: ");
+	scanf("%d", &y);
+	
+	// 3. Thực hiện tìm UCLN
+	int uocchunglonnhat = UCLN(x, y);
+	int boichungnhonhat = BCNN(x, y);
+	printf("- Uoc chung lon nhat: %d\n", uocchunglonnhat);
+	printf("- Boi chung nho nhat: %d\n", boichungnhonhat);
+}
 
 int main() {
 	// 1. Khai báo biến
@@ -43,6 +114,7 @@ int main() {
 			break;
 		case 2:
 			// Tim Uoc so chung va Boi so chung cua 2 so
+			chucNangSo2();
 			break;
 		case 3:
 			// Tinh tien cho quan Karaoke
